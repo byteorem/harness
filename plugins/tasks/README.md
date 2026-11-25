@@ -2,11 +2,13 @@
 
 > A task workflow for coding agents, on beads (bd): one focus per session with plans, gates and handoffs in each repo, plus a standup repo that reports across repos, triages asks and routes email into tasks.
 
+It sits on top of beads, not in place of it: install bd and its own Claude Code integration (`bd setup claude`, or the beads plugin) as usual. Those keep their `bd prime` hooks; this plugin adds the workflow and no hooks of its own.
+
 Two halves. In each repo with a [Beads](https://github.com/gastownhall/beads) (`bd`) store, the agent works one focus per session: a request becomes a root bead with a plan, external waits become gates, and a pause or end leaves a handoff that the next session picks up. A separate standup repo, with its own store, reports what is in progress, ready and waiting across your repos, triages asks into beads and routes email into them.
 
 ## Install
 
-Install at user scope. Everything is silent outside a beads store, so it costs nothing in other folders:
+Install at user scope. Outside a repo with a beads store its skills don't trigger:
 
 ```sh
 claude plugin install tasks@harness --scope user
@@ -14,7 +16,7 @@ claude plugin install tasks@harness --scope user
 
 ## Requirements
 
-[`bd`](https://github.com/gastownhall/beads) (tested with 1.3.2) on PATH, and [`uv`](https://docs.astral.sh/uv/) for the hook and the standup scripts.
+[`bd`](https://github.com/gastownhall/beads) (tested with 1.3.2) on PATH, and [`uv`](https://docs.astral.sh/uv/) for the standup scripts. bd's own Claude Code integration is separate and stays as it is.
 
 ## What's in it
 
@@ -22,12 +24,8 @@ claude plugin install tasks@harness --scope user
 | --- | --- |
 | `workflow` skill | The repo workflow: how a request becomes a focus with a plan, how work is claimed and executed, how waits become gates, and how a session is paused, ended and resumed. Loads when a request becomes tracked work in a repo with a bd store |
 | `/tasks:standup-setup [path]` | Creates or refreshes a standup repo in the current folder or `path`. Only you run it |
-| SessionStart hook | Prints the core rule: one focus per session, beads outside the focus aren't yours, and `bd ready` and `bd prime` are awareness, not a todo list. Prints one line if a store exists but `bd` is missing |
-| PreCompact hook | Asks the summary to keep the focus root bead id and any in-progress bead ids |
 | `skills/standup-setup/scripts/install.py` | Run by `standup-setup`: writes the standup repo's files. Needs an existing store there; it tells you to run `bd init` and never runs it |
 | `scripts/report.py`, `scripts/ledger.py` | Standup scripts, copied into the standup repo (see below) |
-
-Both hooks print nothing outside a store, and nothing in a standup repo, where its own `CLAUDE.md` governs.
 
 ## The standup repo
 
@@ -72,10 +70,8 @@ Leave `bd init`, `bd delete`, anything touching `bd dolt` (including `bd dolt pu
 
 ## Design notes
 
-- The core rule is a hook, not only a skill, because a skill loads too late to outrank `bd prime`'s "check `bd ready` for available work" and "use beads for ALL task tracking". The hook states the rule at session start, and the skill carries the full workflow.
+- No hooks. bd's integration already runs `bd prime` at session start and after compaction; a second set would duplicate it. The one-focus rule lives in the `workflow` skill, which says it takes precedence over `bd prime`'s "check `bd ready` for available work". To have the rule present before the skill loads, put it in a repo's `.beads/PRIME.md`, which `bd prime` prints in place of its default text.
 - The standup scripts are copied into the standup repo, so it works without the plugin installed and its `CLAUDE.md` never refers to a plugin path.
-- The hook script is Python run with `uv`, stdlib only. It walks up from the cwd looking for a `.beads` directory that holds a store's `metadata.json` or `config.yaml`; that is the whole cost outside a store. The directory alone doesn't count, because bd keeps its machine id in `~/.beads`.
-- PreCompact stdout steers the compaction summary rather than loading context, and SessionStart fires again after compaction, so the core rule lives only on SessionStart.
 
 ## Later
 

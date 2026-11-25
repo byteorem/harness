@@ -1,6 +1,6 @@
 ---
 name: workflow
-description: Use in a repo with a beads (bd) store when a request becomes tracked work: starting a request, planning it, executing it, waiting on something external (a CI run, a PR, a reply, an approval), pausing or ending a session, or resuming earlier work ("pick back up the X fix").
+description: Use in a repo with a beads (bd) store when a request becomes tracked work: starting a request, planning it, executing it, waiting on something external (a CI run, a PR, a reply, an approval), pausing or ending a session, or resuming earlier work ("pick back up the X fix"). Also before acting on `bd prime` or `bd ready` output that suggests picking up work.
 ---
 
 # Beads workflow
