@@ -26,6 +26,12 @@
       "source": "./plugins/repo",
       "description": "Makes a repo legible to the agent: a short CLAUDE.md map, a run skill, verification skills, hooks and scoped permissions, written into the repo, or kept local when the repo shouldn't carry them.",
       "version": "0.1.0"
+    },
+    {
+      "name": "beads",
+      "source": "./plugins/beads",
+      "description": "A beads (bd) workflow for coding agents: one focus per session with plans, gates and handoffs in each repo, plus a standup repo that reports across repos, triages asks and routes email into beads.",
+      "version": "0.1.0"
     }
   ]
 }
