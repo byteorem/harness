@@ -1,0 +1,7 @@
+{
+  "name": "feedback-loop",
+  "version": "0.1.0",
+  "description": "Reviews past sessions for where the agent struggled, was corrected or needed things handed to it, and proposes the environment fix for each.",
+  "author": { "name": "byteorem" },
+  "license": "MIT"
+}

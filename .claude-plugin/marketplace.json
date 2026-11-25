@@ -1,0 +1,31 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "harness",
+  "owner": {
+    "name": "byteorem"
+  },
+  "metadata": {
+    "description": "Claude Code plugins for working with coding agents: skills, agents, commands, and hooks built on harness-engineering practices.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "feedback-loop",
+      "source": "./plugins/feedback-loop",
+      "description": "Reviews past sessions for where the agent struggled, was corrected or needed things handed to it, and proposes the environment fix for each.",
+      "version": "0.1.0"
+    },
+    {
+      "name": "conventions",
+      "source": "./plugins/conventions",
+      "description": "House conventions for building what an agent reads: how to write a skill, and how to design skills, agent definitions, commands, hooks and prompts for a capable model.",
+      "version": "0.1.0"
+    },
+    {
+      "name": "repo",
+      "source": "./plugins/repo",
+      "description": "Makes a repo legible to the agent: a short CLAUDE.md map, a run skill, verification skills, hooks and scoped permissions, written into the repo, or kept local when the repo shouldn't carry them.",
+      "version": "0.1.0"
+    }
+  ]
+}
