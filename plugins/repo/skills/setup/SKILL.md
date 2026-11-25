@@ -22,11 +22,40 @@ Do it in one pass. Check what the repo already has for each piece below and whet
 
 ## CLAUDE.md
 
-A map of under about 40 lines: what the repo is for, and what an agent would get wrong without being told. Leave out anything it can discover from the code, the README or the config, and point to the run and verify skills instead of inlining their procedures.
+A map of under about 40 lines, not counting the Commits and PRs section: what the repo is for, and what an agent would get wrong without being told. Leave out anything it can discover from the code, the README or the config, and point to the run and verify skills instead of inlining their procedures.
 
 - If `AGENTS.md` exists, the content goes there and `CLAUDE.md` is the single line `See @AGENTS.md`.
 - Gotchas come from evidence (failed runs, review comments, things the user corrected), not from guessing. None on day one is fine.
 - Rules state intent ("keep X out of Y because Z"), not step lists.
+
+### Commits and PRs
+
+The map carries a section on how work lands in this repo, built from this template. An existing map without one gets it proposed as a diff.
+
+````markdown
+## Commits and PRs
+
+- Never open a PR unless explicitly asked. One request is one PR; split only when asked.
+- UI changes need before/after images, saved outside the repo.
+- Don't commit plans, research notes or scratch files; keep them outside the worktree.
+
+PR body:
+
+```markdown
+### <the repo's own heading>
+<a sentence or two>
+
+### Verification
+- `<a command that ran>`
+- <what was checked by hand>
+- Not run: `<command>` (<reason>)
+```
+````
+
+- The first and last lines go in every repo; the image line only where the repo has a UI.
+- The body example is one of the repo's merged PRs, trimmed to a few lines per heading, so its length and tone are what the maintainers already accept. Headings come from the PR template where there is one, otherwise from recent merged PRs. Add the Verification section when the repo's own shape has none.
+- With no template and no merged PRs to draw on, replace the example with one line: the problem in a sentence or two, then how it was fixed.
+- No line about crediting a model, harness or co-author. Attribution is the `attribution` setting's job, and the user decides it.
 
 ## Judgment calls
 

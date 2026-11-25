@@ -26,7 +26,7 @@ What it generates works without the plugin, so repos and teammates don't need it
 
 | Piece | Where | Notes |
 | --- | --- | --- |
-| Map | `CLAUDE.md` | Short: what the repo is for, rules, gotchas, pointers to skills. Nothing the agent can find in the code or config |
+| Map | `CLAUDE.md` | Short: what the repo is for, rules, gotchas, how commits and PRs are done here, pointers to skills. Nothing the agent can find in the code or config |
 | Run skill | `.claude/skills/run-<name>/` | Made by Claude Code's built-in `/run-skill-generator`; setup asks you to run it rather than reimplementing it |
 | Verification skill | `.claude/skills/verify/` | Named `verify` so Claude Code runs it before each commit, in place of its built-in `/verify`. One per repo to start. Split an area out only when it verifies differently (different launch, driver or evidence) |
 | Hooks | `.claude/settings.json` | Format/lint after edit, only where the repo already has the tool |
