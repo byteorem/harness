@@ -15,6 +15,7 @@ Gotchas:
 - Identity is (channel, msg_id). `append` skips entries already in the ledger or
   earlier in the same input, so reruns are safe.
 - `append` validates every entry before writing anything, and only appends.
+- `target` must be present but may be null (skip and reply-needed entries).
 """
 import argparse
 import json
@@ -102,6 +103,8 @@ def cmd_append(a):
     items = read_items("entries")
     for where, o in items:
         for f in REQUIRED:
+            if f == "target" and f in o and o[f] is None:
+                continue  # null target is how skip and reply-needed entries are written
             need_str(where, o, f)
         if o["action"] not in ACTIONS:
             fail(f"{where}: field 'action' is '{o['action']}'; expected one of {'|'.join(ACTIONS)}")

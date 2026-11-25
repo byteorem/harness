@@ -43,7 +43,7 @@ Loop until the focus is done or every remaining step is waiting:
 2. `bd update <id> --claim`
 3. Do the work.
 4. `bd close <id> --reason "<what changed / commit / PR>"`
-5. If you find unrelated or out-of-scope work, file it and don't do it. A bead outside the focus's tree: `bd create "..." --deps discovered-from:<id>`. Mention it to the user in one line. To keep it inside the tree instead, use `--parent <root>`; the two don't combine.
+5. If you find unrelated or out-of-scope work, file it and don't do it: `bd create "..." --deps discovered-from:<id>`. Mention it to the user in one line.
 
 **Permissions:** local and read-only work is free. Always ask before you open a PR, merge or deploy.
 
@@ -126,10 +126,6 @@ If the user starts an unrelated request instead, it's a new focus. Leave the old
 - `bd create --parent <root> --deps discovered-from:<root>` fails: the parent-child dependency already exists. Use one or the other.
 - `bd list` hides gates unless you pass `--include-gates` or `--type gate`; `--has-metadata-key` hides them too. `bd list --all --include-gates --metadata-field thread_id=<id> -n 0 --json` returns gates and closed beads.
 - `bd list -n 0` with no `--status` returns open, in_progress, blocked and deferred beads, not closed ones. Without `-n 0` the limit is 50. Add `--all` to include closed beads.
-- `bd update` takes `--claim`, `--append-notes`, `--add-label` and `--set-metadata k=v` (repeatable).
-- `bd defer <id> --until <when> --reason "..."` appends the reason to the bead's notes.
-- `bd gate check --type=gh` closes met GitHub gates; add `--dry-run` to only report them. `bd gate resolve <id> [--reason]` closes any gate.
-- `-C <dir>` is a global flag that points any `bd` command at another repo's store.
 - `bd ready` leaves out in_progress beads. After a restart or compaction, look for claimed work in `bd list --status in_progress` first.
 - In `bd dep add <id> <blocked-by>` the first id is the one that waits. It disappears from `bd ready` until the blocker closes, with no notice.
 - A claimed bead stays in_progress behind a gate, so a restart takes it for work under way. `bd unclaim <id>` when you gate it.

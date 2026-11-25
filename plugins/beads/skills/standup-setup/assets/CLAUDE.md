@@ -90,11 +90,10 @@ bd -C <path> create "<title>" -t <bug|feature|task|chore> -p <0-4> \
 
 ### Gates
 
-Model each external wait as its own gate on the step that waits, with `bd -C <path> gate create --type=human --blocks <id> --title "<what is awaited, from whom>" --reason "<what + any ticket #>"`.
+Model each external wait as its own gate on the new bead, with `bd -C <path> gate create --type=human --blocks <id> --title "<what is awaited, from whom>" --reason "<what + any ticket #>"`.
 
 - Always pass `--title`: the reason goes into the gate's description as `Reason: ...`, and the title defaults to `Gate: human`, which makes gate lists unreadable.
 - `bd gate create` has no `--repo` flag, and `gh:run` / `gh:pr` gates only check the current repo. For another repo's run or PR, use a human gate that names it.
-- Gate the specific step, not the root: a gate on a parent blocks all its children.
 - When waiting on a reply, label the gate `wait:email`, `wait:slack` or `wait:teams`, and set metadata so the reply can be found: `bd -C <path> update <gate-id> --add-label wait:email --set-metadata to="<who>" --set-metadata subject="<subject>" --set-metadata sent="<YYYY-MM-DD>" --set-metadata thread_id="<id, when known>"` (`--set-metadata` repeats).
 
 ### Triage scope

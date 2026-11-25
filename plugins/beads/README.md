@@ -24,7 +24,7 @@ claude plugin install beads@harness --scope user
 | `/beads:standup-setup [path]` | Creates or refreshes a standup repo in the current folder or `path`. Only you run it |
 | SessionStart hook | Prints the core rule: one focus per session, beads outside the focus aren't yours, and `bd ready` and `bd prime` are awareness, not a todo list. Prints one line if a store exists but `bd` is missing |
 | PreCompact hook | Asks the summary to keep the focus root bead id and any in-progress bead ids |
-| `scripts/install.py` | Run by `standup-setup`: writes the standup repo's files. Needs an existing store there; it tells you to run `bd init` and never runs it |
+| `skills/standup-setup/scripts/install.py` | Run by `standup-setup`: writes the standup repo's files. Needs an existing store there; it tells you to run `bd init` and never runs it |
 | `scripts/report.py`, `scripts/ledger.py` | Standup scripts, copied into the standup repo (see below) |
 
 Both hooks print nothing outside a store, and nothing in a standup repo, where its own `CLAUDE.md` governs.

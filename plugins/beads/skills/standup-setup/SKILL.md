@@ -1,12 +1,13 @@
 ---
 name: standup-setup
 description: Create or refresh a beads standup repo (report, triage and intake across repos) in the current directory or a given path.
+argument-hint: "[path]"
 disable-model-invocation: true
 ---
 
 # Standup setup
 
-Goal: the target directory is a working standup repo: the plugin's `CLAUDE.md` and `intake.md`, the report and ledger scripts, and starter `repos.md` and `channels.md` that setup never overwrites. The directory is the current one unless the user passes a path.
+Goal: the target directory is a working standup repo: the plugin's `CLAUDE.md` and `intake.md`, the report and ledger scripts, and starter `repos.md` and `channels.md` that setup never overwrites. The directory is `$ARGUMENTS`, or the current one if that's empty.
 
 Run it, then report the script's summary (written, kept, skipped) in a few lines:
 
