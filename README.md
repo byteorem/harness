@@ -14,7 +14,7 @@ The patterns every plugin here follows.
 | Context is scarce | Load only what's needed, when it's needed |
 | Composable capabilities | Each capability can be added, swapped or removed on its own. Plugins depend on contracts, never on each other |
 | Less hand-holding | Having to hand-hold the agent means it's missing a capability. Add it, so you only step in at boundaries |
-| Domain-agnostic | A plugin installed everywhere assumes nothing about code or a repo |
+| Quiet where it doesn't apply | A plugin installed everywhere triggers and acts only where it applies, and stays silent elsewhere |
 
 ## Plugins
 
@@ -32,12 +32,7 @@ Each plugin is installed where it's needed and can be added, swapped or removed 
 claude plugin marketplace add byteorem/harness
 claude plugin install feedback-loop@harness --scope user
 claude plugin install conventions@harness --scope user
-```
-
-Install `repo` at project scope, in the repos that need it:
-
-```sh
-claude plugin install repo@harness --scope project
+claude plugin install repo@harness --scope user
 ```
 
 ## Layout

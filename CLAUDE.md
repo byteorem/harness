@@ -10,7 +10,7 @@ A Claude Code plugin marketplace: plugins for working with coding agents. The ro
 
 ## Install scope
 
-Each plugin starts at the narrowest scope that covers where it applies, and its README's Install section says which. A plugin meant for user scope runs everywhere, so nothing in it assumes code or a repo.
+Each plugin starts at the narrowest scope that covers where it applies, and its README's Install section says which. A plugin meant for user scope loads in every session, so its skills trigger and its hooks act only where they apply, and stay silent elsewhere.
 
 ## Designing for capable agents
 

@@ -6,13 +6,13 @@ It generates things in the target repo, not in the harness, so they work for any
 
 ## Install
 
-Install per repo, at project scope:
+Install at user scope, so it's ready in any repo you open:
 
 ```sh
-claude plugin install repo@harness --scope project
+claude plugin install repo@harness --scope user
 ```
 
-This records the plugin in the repo's `.claude/settings.json`, so commit that file and teammates get it too. To keep it out of the repo, use `--scope local`, which records it in `.claude/settings.local.json`.
+What it generates works without the plugin, so repos and teammates don't need it installed. Outside a repo its skills don't trigger.
 
 ## Commands
 
