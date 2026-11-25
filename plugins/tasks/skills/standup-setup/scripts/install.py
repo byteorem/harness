@@ -53,7 +53,7 @@ def main() -> int:
         return 2
     missing = [n for n in ALWAYS + IF_MISSING if not (ASSETS / n).is_file()]
     if missing:
-        print(f"Error: plugin assets missing under {ASSETS}: {', '.join(missing)}. Reinstall the beads plugin.", file=sys.stderr)
+        print(f"Error: plugin assets missing under {ASSETS}: {', '.join(missing)}. Reinstall the tasks plugin.", file=sys.stderr)
         return 2
 
     written, kept, skipped = [], [], []

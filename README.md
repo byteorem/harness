@@ -25,7 +25,7 @@ Each plugin is installed where it's needed and can be added, swapped or removed 
 | [feedback-loop](plugins/feedback-loop/README.md) | Reviews past sessions for where the agent struggled, was corrected or needed things handed to it, and proposes the environment fix for each: a check, script, skill or CLAUDE.md change. Runs only when you invoke it |
 | [conventions](plugins/conventions/README.md) | House conventions for building what an agent reads: how to write a skill, and how to design skills, agent definitions, commands, hooks and prompts for a capable model |
 | [repo](plugins/repo/README.md) | Makes a repo legible: generates a short CLAUDE.md, run and verification skills, hooks and permission guidance, in the repo or kept local |
-| [beads](plugins/beads/README.md) | A beads (bd) workflow for coding agents: one focus per session with plans, gates and handoffs in each repo, plus a standup repo that reports across repos, triages asks and routes email into beads |
+| [tasks](plugins/tasks/README.md) | A task workflow for coding agents, on beads (bd): one focus per session with plans, gates and handoffs in each repo, plus a standup repo that reports across repos, triages asks and routes email into tasks |
 
 ## Install
 
@@ -34,7 +34,7 @@ claude plugin marketplace add byteorem/harness
 claude plugin install feedback-loop@harness --scope user
 claude plugin install conventions@harness --scope user
 claude plugin install repo@harness --scope user
-claude plugin install beads@harness --scope user
+claude plugin install tasks@harness --scope user
 ```
 
 ## Layout
@@ -46,7 +46,7 @@ plugins/
   feedback-loop/
   conventions/
   repo/
-  beads/
+  tasks/
 CLAUDE.md
 ```
 

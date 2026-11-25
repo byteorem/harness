@@ -1,6 +1,6 @@
-# beads
+# tasks
 
-> A beads (bd) workflow for coding agents: one focus per session with plans, gates and handoffs in each repo, plus a standup repo that reports across repos, triages asks and routes email into beads.
+> A task workflow for coding agents, on beads (bd): one focus per session with plans, gates and handoffs in each repo, plus a standup repo that reports across repos, triages asks and routes email into tasks.
 
 Two halves. In each repo with a [Beads](https://github.com/gastownhall/beads) (`bd`) store, the agent works one focus per session: a request becomes a root bead with a plan, external waits become gates, and a pause or end leaves a handoff that the next session picks up. A separate standup repo, with its own store, reports what is in progress, ready and waiting across your repos, triages asks into beads and routes email into them.
 
@@ -9,7 +9,7 @@ Two halves. In each repo with a [Beads](https://github.com/gastownhall/beads) (`
 Install at user scope. Everything is silent outside a beads store, so it costs nothing in other folders:
 
 ```sh
-claude plugin install beads@harness --scope user
+claude plugin install tasks@harness --scope user
 ```
 
 ## Requirements
@@ -21,7 +21,7 @@ claude plugin install beads@harness --scope user
 | Piece | What it does |
 | --- | --- |
 | `workflow` skill | The repo workflow: how a request becomes a focus with a plan, how work is claimed and executed, how waits become gates, and how a session is paused, ended and resumed. Loads when a request becomes tracked work in a repo with a bd store |
-| `/beads:standup-setup [path]` | Creates or refreshes a standup repo in the current folder or `path`. Only you run it |
+| `/tasks:standup-setup [path]` | Creates or refreshes a standup repo in the current folder or `path`. Only you run it |
 | SessionStart hook | Prints the core rule: one focus per session, beads outside the focus aren't yours, and `bd ready` and `bd prime` are awareness, not a todo list. Prints one line if a store exists but `bd` is missing |
 | PreCompact hook | Asks the summary to keep the focus root bead id and any in-progress bead ids |
 | `skills/standup-setup/scripts/install.py` | Run by `standup-setup`: writes the standup repo's files. Needs an existing store there; it tells you to run `bd init` and never runs it |
@@ -31,7 +31,7 @@ Both hooks print nothing outside a store, and nothing in a standup repo, where i
 
 ## The standup repo
 
-Run `bd init` in a folder, then `/beads:standup-setup`. The repo holds its own bead store as an inbox, and runs everything from its own copy of the scripts:
+Run `bd init` in a folder, then `/tasks:standup-setup`. The repo holds its own bead store as an inbox, and runs everything from its own copy of the scripts:
 
 | File | Setup |
 | --- | --- |

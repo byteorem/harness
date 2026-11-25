@@ -1,0 +1,9 @@
+{
+  "name": "tasks",
+  "version": "0.1.0",
+  "description": "A task workflow for coding agents, on beads (bd): one focus per session with plans, gates and handoffs in each repo, plus a standup repo that reports across repos, triages asks and routes email into tasks.",
+  "author": {
+    "name": "byteorem"
+  },
+  "license": "MIT"
+}

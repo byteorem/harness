@@ -1,9 +1,0 @@
-{
-  "name": "beads",
-  "version": "0.1.0",
-  "description": "A beads (bd) workflow for coding agents: one focus per session with plans, gates and handoffs in each repo, plus a standup repo that reports across repos, triages asks and routes email into beads.",
-  "author": {
-    "name": "byteorem"
-  },
-  "license": "MIT"
-}

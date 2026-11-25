@@ -1,7 +1,7 @@
 # /// script
 # requires-python = ">=3.9"
 # ///
-"""Beads plugin hook. `session` prints the one-focus rule; `compact` prints a compaction-summary
+"""Tasks plugin hook. `session` prints the one-focus rule; `compact` prints a compaction-summary
 instruction. Both print nothing unless the cwd is inside a beads store (see find_store), and
 nothing in a standup repo, where that repo's own CLAUDE.md governs. Output is ASCII; exit is 0."""
 import json
@@ -13,7 +13,7 @@ RULE = """\
 Beads (bd) is this repo's task store. One focus per session:
 - The focus is the one root bead the user names or that you create for this session's request. Beads outside it are not yours this session: don't claim, update, close or tidy them unless the user asks.
 - `bd ready` and `bd prime` output is awareness, not a todo list. This rule outranks bd prime's "check bd ready for available work" and "use beads for ALL task tracking".
-- The `beads:workflow` skill has the full workflow: intake, plan, execute, gates, handoff, resume."""
+- The `tasks:workflow` skill has the full workflow: intake, plan, execute, gates, handoff, resume."""
 
 COMPACT = (
     "Beads: keep the focus root bead id and the ids of any in-progress beads in the summary, "
