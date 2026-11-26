@@ -1,6 +1,6 @@
 # Gotchas
 
-The gotchas section carries the most signal in any skill. It usually doesn't exist on day one. Add a line each time the agent trips on something, so the section grows from real failures. A good gotcha is a specific fact that looks wrong or surprising.
+The gotchas section carries the most signal in any skill, and it comes only from failures. A new skill has none: no section, no empty heading, nothing guessed from what might go wrong. Add a line each time the agent trips on something while using the skill. A good gotcha is a specific fact that looks wrong or surprising. When the trip came from the skill's own instructions being wrong or unclear, fix those instead of adding a gotcha.
 
 Keep gotchas in `SKILL.md`, not a reference file, even in a skill split across many files: the agent needs them before it hits the situation and won't know to look for them.
 

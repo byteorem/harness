@@ -12,7 +12,7 @@ So the question for every line is whether a capable agent would get this wrong w
 ## What to write
 
 - **Goal, constraints, finish line.** State what the agent is achieving, what it must not break, and what done means. It works out the steps. Keep a fixed sequence only where the order matters and a wrong move is costly, and there be exact.
-- **What it couldn't infer.** Gotchas taken from real failures are the highest-signal content a skill has; add one each time the agent trips. After that, opinions, knowledge, and practices specific to the user, their team, or the project. Leave out anything it knows already or can see in the files.
+- **What it couldn't infer.** Opinions, knowledge, and practices specific to the user, their team, or the project. Leave out anything it knows already or can see in the files. Gotchas are the highest-signal content a skill has, but they come from real failures: add one each time the agent trips, not before.
 - **The judgment, not a rule.** "Match the surrounding code's comment density" does better than "write no comments": a blanket rule is wrong in the cases it didn't foresee. Say each thing once, where it's used, with no repetition or emphasis for effect.
 - **Full scope and standing permission.** A capable agent leans cautious. It stops at a first pass or asks before a safe action unless told the scope runs further. Say which actions are safe to take without asking and how far the work goes.
 
