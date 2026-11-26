@@ -24,7 +24,7 @@ Each plugin is installed where it's needed and can be added, swapped or removed 
 | --- | --- |
 | [feedback-loop](plugins/feedback-loop/README.md) | Reviews past sessions for where the agent struggled, was corrected or needed things handed to it, and proposes the environment fix for each: a check, script, skill or CLAUDE.md change. Runs only when you invoke it |
 | [conventions](plugins/conventions/README.md) | House conventions for building what an agent reads: how to write a skill, and how to design skills, agent definitions, commands, hooks and prompts for a capable model |
-| [repo](plugins/repo/README.md) | Audits a repo for agent readiness and sets up what an agent needs to take a change from request to proof. |
+| [repo](plugins/repo/README.md) | Audits a repo for agent readiness and sets up what an agent needs to take a change from request to proof |
 | [tasks](plugins/tasks/README.md) | A task workflow for coding agents, on beads (bd): one focus per session with plans, gates and handoffs in each repo, plus a standup repo that reports across repos, triages asks and routes email into tasks |
 
 ## Install

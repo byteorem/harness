@@ -55,7 +55,6 @@ Existing files are left alone: a stale map gets a proposed diff, and settings ar
 | Repo changes (tests, CI, env template, issue and PR templates, logging) | Listed with the concrete change each; made only when you pick them |
 | Host settings (branch protection, secret scanning) | Reported; they're yours to change |
 
-
 ## Permissions
 
 Allow the safe, repeatable workflows (tests, lint, build, read-only git) so the agent doesn't stop to ask. Boundaries stay on `ask` or `deny`: pushes, publishing, deploys, external sends, destructive git, and secret files. Each repo draws its own line. Personal rules go in `.claude/settings.local.json`, not the shared file.
